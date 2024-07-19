@@ -1,11 +1,10 @@
-document.getElementById('scrollHome').addEventListener('click', function(){
-    document.getElementById('targetHome').scrollIntoView({behavior: 'smooth'});
-});
+document.querySelectorAll('#scrollHome, #scrollServ, #scrollPoints, #scrollTeam').forEach(function(navItem) {
+    navItem.addEventListener('click', function() {
+        const targetID = navItem.id.replace('scroll', 'target');
+        const targetElement = document.getElementById(targetID);
 
-document.getElementById('scrollServ').addEventListener('click', function(){
-    document.getElementById('targetServ').scrollIntoView({behavior: 'smooth'});
-});
-
-document.getElementById('scrollPoints').addEventListener('click', function(){
-    document.getElementById('targetPoints').scrollIntoView({behavior: 'smooth'});
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 });
